@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sambutan Pengguna</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+    
+        section {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #f8f8f8;
+        }
+    
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+    
+        input {
+            width: 200px;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+    
+        button {
+            margin-top: 10px;
+            padding: 8px 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+        }
+    
+        button:hover {
+            background-color: #0056b3;
+        }
+    
+        #outputSambutan {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+    
+    <script>
+        function tampilkanSambutan() {
+            var namaPengguna = document.getElementById("inputNama").value;
+
+            if (namaPengguna.trim() === "") {
+                alert("Silakan masukkan nama Anda.");
+            } else {
+                var pesanSambutan = "Halo, " + namaPengguna + "! Selamat datang!";
+                document.getElementById("outputSambutan").innerHTML = pesanSambutan;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>SELAMAT DATANG </h1>
+    <section>
+        <label for="inputNama">Masukkan Nama Anda: </label>
+        <input type="text" id="inputNama" placeholder="">
+        <button onclick="tampilkanSambutan()">Tampilkan Sambutan</button>
+    </section>
+    
+    <section>
+        
+        <p id="outputSambutan"></p>
+    </section>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Nilai Mahasiswa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        section {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function hitungRataRata() {
+            var nilaiUjian1 = parseFloat(document.getElementById("nilaiUjian1").value);
+            var nilaiUjian2 = parseFloat(document.getElementById("nilaiUjian2").value);
+            var nilaiUjian3 = parseFloat(document.getElementById("nilaiUjian3").value);
+
+            if (isNaN(nilaiUjian1) || isNaN(nilaiUjian2) || isNaN(nilaiUjian3)) {
+                alert("Masukkan nilai ujian yang valid.");
+                return;
+            }
+
+            var rataRata = (nilaiUjian1 + nilaiUjian2 + nilaiUjian3) / 3;
+
+            document.getElementById("outputRataRata").innerHTML = "Nilai rata-rata: " + rataRata.toFixed(2);
+
+            var statusKelulusan = (rataRata >= 60) ? "Lulus" : "Tidak Lulus";
+            document.getElementById("outputStatus").innerHTML = "Status Kelulusan: " + statusKelulusan;
+        }
+    </script>
+</head>
+<body>
+    <h1>HITUNG NILAI RATA RATA</h1>
+    <section>
+        <label for="nilaiUjian1">PENGENALAN POLA: </label>
+        <input type="text" id="nilaiUjian1" placeholder="">
+        <br>
+        <label for="nilaiUjian2">BASIS DATA: </label>
+        <input type="text" id="nilaiUjian2" placeholder="">
+        <br>
+        <label for="nilaiUjian3">WEB 1: </label>
+        <input type="text" id="nilaiUjian3" placeholder="">
+        <br>
+        <button onclick="hitungRataRata()">Hitung Rata-rata</button>
+    </section>
+
+    <section>
+   
+        <p id="outputRataRata"></p>
+        <p id="outputStatus"></p>
+    </section>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Pembayaran dengan Diskon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        section {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function hitungTotalPembayaran() {
+            // Mendapatkan nilai total belanja dari input
+            var totalBelanja = parseFloat(document.getElementById("totalBelanja").value);
+
+            // Memastikan bahwa input berisi angka
+            if (isNaN(totalBelanja)) {
+                alert("Masukkan total belanja yang valid.");
+                return;
+            }
+
+            // Menghitung total pembayaran dengan diskon
+            var diskon = 0.1; // 10%
+            var totalPembayaran = totalBelanja;
+
+            if (totalBelanja > 200000) {
+                totalPembayaran = totalBelanja - (totalBelanja * diskon);
+            }
+
+            // Menampilkan total pembayaran
+            document.getElementById("outputTotalPembayaran").innerHTML = "Total Pembayaran: " + totalPembayaran.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <h1>KALKULATOR DISKON</h1>
+    <section>
+        <label for="totalBelanja">Total Belanja: </label>
+        <input type="text" id="totalBelanja" placeholder="">
+        <br>
+        <button onclick="hitungTotalPembayaran()">Hitung Total Pembayaran</button>
+    </section>
+
+    <section>
+      
+        <p id="outputTotalPembayaran"></p>
+    </section>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Penilaian Mahasiswa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        section {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function hitungNilaiHuruf() {
+            // Mendapatkan nilai ujian dari input
+            var nilaiUjian = parseFloat(document.getElementById("nilaiUjian").value);
+
+            // Memastikan bahwa input berisi angka
+            if (isNaN(nilaiUjian)) {
+                alert("Masukkan nilai ujian yang valid.");
+                return;
+            }
+
+            // Menentukan nilai huruf berdasarkan skala A-F
+            var nilaiHuruf = "";
+
+            if (nilaiUjian >= 90) {
+                nilaiHuruf = "A";
+            } else if (nilaiUjian >= 80) {
+                nilaiHuruf = "B";
+            } else if (nilaiUjian >= 70) {
+                nilaiHuruf = "C";
+            } else if (nilaiUjian >= 60) {
+                nilaiHuruf = "D";
+            } else {
+                nilaiHuruf = "F";
+            }
+
+            // Menampilkan nilai huruf
+            document.getElementById("outputNilaiHuruf").innerHTML = "Nilai Huruf: " + nilaiHuruf;
+        }
+    </script>
+</head>
+<body>
+    <h1>KONVERSI NILAI KE HURUF</h1>
+    <section>
+        <label for="nilaiUjian">Masukkan Nilai Ujian: </label>
+        <input type="text" id="nilaiUjian" placeholder="">
+        <br>
+        <button onclick="hitungNilaiHuruf()">Hitung Nilai Huruf</button>
+    </section>
+
+    <section>
+     
+        <p id="outputNilaiHuruf"></p>
+    </section>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Nilai Mahasiswa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        section {
+            margin-top: 20px;
+        }
+    </style><script>
+    function hitungRataTertinggi() {
+        // Mendapatkan nilai dari formulir
+        var inputNilai = document.getElementById("nilai").value;
+        var nilaiArray = inputNilai.split(",").map(Number);
+
+        // Menghitung nilai rata-rata
+        var totalNilai = 0;
+        for (var i = 0; i < nilaiArray.length; i++) {
+            totalNilai += nilaiArray[i];
+        }
+        var rataRata = totalNilai / nilaiArray.length;
+
+        // Menemukan nilai tertinggi
+        var nilaiTertinggi = Math.max(...nilaiArray);
+
+        // Menampilkan hasil di dalam halaman web
+        var hasilElement = document.getElementById("hasil");
+        hasilElement.innerHTML = "<p>Nilai rata-rata: " + rataRata.toFixed(2) + "</p>" +
+                                "<p>Nilai tertinggi: " + nilaiTertinggi + "</p>";
+    }
+</script>
+</head>
+<body>
+    <section>
+    <div>
+        <h1>PERHITUNGAN NILAI</h1>
+    
+        <!-- Formulir untuk memasukkan nilai -->
+        <label for="nilai">Masukkan nilai (pisahkan dengan koma):</label>
+        <input type="text" id="nilai" placeholder=""><br>
+    
+        <button onclick="hitungRataTertinggi()">Hitung Rata-rata dan Nilai Tertinggi</button>
+    
+        <!-- Menampilkan hasil di dalam halaman web -->
+        <div id="hasil"></div>
+    </div>
+</section>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Hitung Jumlah Kata</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        section {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function hitungJumlahKata() {
+            // Mendapatkan teks paragraf dari input
+            var paragraf = document.getElementById("inputParagraf").value;
+
+            // Memastikan bahwa input tidak kosong
+            if (paragraf.trim() === "") {
+                alert("Masukkan paragraf yang berisi kata-kata.");
+                return;
+            }
+
+            // Menghitung jumlah kata dalam paragraf
+            var kataArray = paragraf.split(/\s+/);
+            var jumlahKata = kataArray.length;
+
+            // Menampilkan jumlah kata
+            document.getElementById("outputJumlahKata").innerHTML = "Jumlah Kata: " + jumlahKata;
+        }
+    </script>
+</head>
+<body>
+    <h1>POGRAM PERHITUNGAN HURUF</h1>
+    <section>
+        <label for="inputParagraf">Masukkan Paragraf: </label>
+        <textarea id="inputParagraf" placeholder="Masukkan paragraf..."></textarea>
+        <br>
+        <button onclick="hitungJumlahKata()">Hitung Jumlah Kata</button>
+    </section>
+
+    <section>
+        <p id="outputJumlahKata"></p>
+    </section>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Inventaris Toko</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        section {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        // Inisialisasi array inventaris
+        var inventarisBarang = [];
+
+        function tambahBarang() {
+            // Mendapatkan nilai input dari pengguna
+            var namaBarang = document.getElementById("namaBarang").value;
+            var jumlahBarang = document.getElementById("jumlahBarang").value;
+
+            // Memastikan bahwa input tidak kosong
+            if (namaBarang.trim() === "" || jumlahBarang.trim() === "") {
+                alert("Masukkan nama dan jumlah barang.");
+                return;
+            }
+
+            // Membuat objek barang baru
+            var barangBaru = {
+                nama: namaBarang,
+                jumlah: parseInt(jumlahBarang)
+            };
+
+            // Menambahkan objek barang ke dalam array inventaris
+            inventarisBarang.push(barangBaru);
+
+            // Menampilkan pesan bahwa barang telah ditambahkan
+            alert("Barang berhasil ditambahkan ke inventaris.");
+
+            // Mereset nilai input
+            document.getElementById("namaBarang").value = "";
+            document.getElementById("jumlahBarang").value = "";
+
+            // Memanggil fungsi untuk menampilkan inventaris
+            tampilkanInventaris();
+        }
+
+        function tampilkanInventaris() {
+            // Menampilkan inventaris pada console (debugging)
+            console.log("Inventaris Barang:");
+            console.log(inventarisBarang);
+
+            // Menampilkan inventaris pada elemen HTML
+            var outputInventaris = document.getElementById("outputInventaris");
+            outputInventaris.innerHTML = "<h2>Inventaris Barang</h2>";
+
+            if (inventarisBarang.length === 0) {
+                outputInventaris.innerHTML += "<p>Tidak ada barang dalam inventaris.</p>";
+            } else {
+                for (var i = 0; i < inventarisBarang.length; i++) {
+                    outputInventaris.innerHTML += "<p>" + inventarisBarang[i].nama + " - Jumlah: " + inventarisBarang[i].jumlah + "</p>";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>MANIPULASI ARRAY</h1>
+    <section>
+        <label for="namaBarang">Nama Barang: </label>
+        <input type="text" id="namaBarang" placeholder="">
+        <br>
+        <label for="jumlahBarang">Jumlah Barang: </label>
+        <input type="text" id="jumlahBarang" placeholder="">
+        <br>
+        <button onclick="tambahBarang()">Tambah Barang</button>
+    </section>
+
+    <section>
+        <div id="outputInventaris"></div>
+    </section>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Ubah Format Tanggal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        section {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function ubahFormatTanggal() {
+            // Mendapatkan nilai input tanggal dari pengguna
+            var inputTanggal = document.getElementById("inputTanggal").value;
+
+            // Memastikan bahwa input tidak kosong
+            if (inputTanggal.trim() === "") {
+                alert("Masukkan tanggal yang valid.");
+                return;
+            }
+
+            // Memisahkan tanggal menjadi array [dd, mm, yyyy]
+            var tanggalArray = inputTanggal.split("-");
+
+            // Memastikan bahwa array memiliki tiga elemen (dd, mm, yyyy)
+            if (tanggalArray.length !== 3) {
+                alert("Format tanggal tidak valid. Gunakan format dd-mm-yyyy.");
+                return;
+            }
+
+            // Membuat tanggal baru dengan format mm/dd/yyyy
+            var tanggalBaru = tanggalArray[1] + "/" + tanggalArray[0] + "/" + tanggalArray[2];
+
+            // Menampilkan tanggal baru
+            document.getElementById("outputTanggalBaru").innerHTML = "Tanggal Baru: " + tanggalBaru;
+        }
+    </script>
+</head>
+<body>
+    <h1>STRING MANIPULATION</h1>
+    <section>
+        <label for="inputTanggal">Masukkan Tanggal (dd-mm-yyyy): </label>
+        <input type="text" id="inputTanggal" placeholder="Masukkan tanggal...">
+        <br>
+        <button onclick="ubahFormatTanggal()">Ubah Format Tanggal</button>
+    </section>
+
+    <section>
+
+        <p id="outputTanggalBaru"></p>
+    </section>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Total Nilai</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Hitung Total Nilai Ujian</h2>
+
+    <!-- Formulir untuk memasukkan nilai ujian -->
+    <label for="nilaiInput">Masukkan Nilai Ujian (pisahkan dengan koma):</label>
+    <input type="text" id="nilaiInput" placeholder=""><br>
+
+    <button onclick="hitungTotalNilai()">Hitung Total Nilai</button>
+
+    <p id="result"></p>
+
+    <script>
+        function hitungTotalNilai() {
+            // Mendapatkan nilai ujian dari input dan memisahkan dengan koma
+            var nilaiInput = document.getElementById("nilaiInput").value;
+            var nilaiArray = nilaiInput.split(",");
+
+            // Mengubah nilai-nilai menjadi tipe data angka
+            var nilaiAngka = nilaiArray.map(function(nilai) {
+                return parseFloat(nilai) || 0;
+            });
+
+            // Menggunakan fungsi untuk menghitung total nilai
+            var totalNilai = calculateTotal(...nilaiAngka);
+
+            // Menampilkan hasil ke elemen dengan id "result"
+            document.getElementById("result").innerHTML = "Total Nilai Ujian: " + totalNilai;
+        }
+
+        // Fungsi untuk menghitung total nilai
+        function calculateTotal(...nilai) {
+            return nilai.reduce(function(acc, curr) {
+                return acc + curr;
+            }, 0);
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Sederhana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        section {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function hitungOperasi() {
+            // Mendapatkan nilai input dari pengguna
+            var angka1 = parseFloat(document.getElementById("angka1").value);
+            var angka2 = parseFloat(document.getElementById("angka2").value);
+            var operasi = document.getElementById("operasi").value;
+
+            // Memastikan bahwa input berisi angka
+            if (isNaN(angka1) || isNaN(angka2)) {
+                alert("Masukkan angka yang valid.");
+                return;
+            }
+
+            // Melakukan operasi sesuai dengan pilihan pengguna
+            var hasil;
+
+            switch (operasi) {
+                case "tambah":
+                    hasil = angka1 + angka2;
+                    break;
+                case "kurang":
+                    hasil = angka1 - angka2;
+                    break;
+                case "kali":
+                    hasil = angka1 * angka2;
+                    break;
+                case "bagi":
+                    if (angka2 !== 0) {
+                        hasil = angka1 / angka2;
+                    } else {
+                        alert("Tidak dapat melakukan pembagian dengan nol.");
+                        return;
+                    }
+                    break;
+                default:
+                    alert("Operasi tidak valid.");
+                    return;
+            }
+
+            // Menampilkan hasil operasi
+            document.getElementById("outputHasil").innerHTML = "Hasil: " + hasil.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <h1>KALKULATOR SEDERHANA</h1>
+    <section>
+        <label for="angka1">Angka 1: </label>
+        <input type="text" id="angka1" placeholder="">
+        <br>
+        <label for="angka2">Angka 2: </label>
+        <input type="text" id="angka2" placeholder="">
+        <br>
+        <label for="operasi">Pilih Operasi: </label>
+        <select id="operasi">
+            <option value="tambah">Tambah</option>
+            <option value="kurang">Kurang</option>
+            <option value="kali">Kali</option>
+            <option value="bagi">Bagi</option>
+        </select>
+        <br>
+        <button onclick="hitungOperasi()">Hitung</button>
+    </section>
+
+    <section>
+     
+        <p id="outputHasil"></p>
+    </section>
+</body>
+</html>
+
+
+
+
